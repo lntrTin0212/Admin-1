@@ -1,0 +1,98 @@
+<div class="first-edit">
+    <div class="status">
+        <div class="status__activated">
+            <a (click)="activeClicked()">
+                <i class="fa-solid fa-user"></i>
+                <p>activated</p>
+            </a>
+        </div>
+        <div class="status__suspended">
+            <a class="active" (click)="suspendClicked()">
+                <i class="fa-solid fa-user-large-slash"></i>
+                <p>suspended</p>
+            </a>
+        </div>
+    </div>
+    <button class="btn btn--add" (click)="showModal()">Add new User</button>
+    <div class="modal ">
+        <div class="modal__container">
+            <i class="fa-solid fa-circle-xmark" (click)="offModal()"></i>
+            <h1>ADD USER</h1>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="form-group">
+                    <label for="fname">First Name: </label>
+                    <input id="fname" type="text" name="firstName" ngModel required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name: </label>
+                    <input id="lname" type="text" name="lastName" ngModel required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input id="email" type="text" name="email" ngModel required email #email="ngModel">
+                </div>
+                <p class="alert" *ngIf="!email.valid && email.touched">please enter a valid email!</p>
+                <div class="form-group">
+                    <label for="phone">Phone: </label>
+                    <input id="phone" type="text" name="phone" ngModel required="">
+                </div>
+                <div class="form-group">
+                    <label for="dob">DOB: </label>
+                    <input id="dob" type="date" name="DOB" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="status">status: </label>
+                    <select name="status" id="status">
+                        <option value="activated">activated</option>
+                        <option value="suspended">suspended</option>
+                    </select>
+                </div>
+                <div class="form-group social-group">
+                    <label for="fb">FacebookURL: </label>
+                    <input
+                        id="fb"
+                        type="text"
+                        name="social"
+                        ngModel
+                        pattern=""
+                        #social="ngModel"
+                    >
+                    <label for="linked">Linkedin: </label>
+                    <input
+                        id="linked"
+                        type="text"
+                        name="social"
+                        ngModel
+                        pattern=""
+                        #social="ngModel"
+                    >
+                    <label for="tw">Twitter: </label>
+                    <input
+                        id="tw"
+                        type="text"
+                        name="social"
+                        ngModel
+                        pattern=""
+                        #social="ngModel"
+                    >
+                    <p class="alert" *ngIf="!social.valid && social.touched">please enter a valid URL!</p>
+                </div>
+                <button class="btn" [disabled]="!f.valid">ADD</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="hr"></div>
+<div class="second-edit">
+    <div class="user-counter">
+        <p>Users</p>
+    </div>
+    <div class="sort">
+        <p>Sort By: </p>
+        <a href="#" class="active">Name</a>
+        <a href="#">Email</a>
+        <a href="#">Phone</a>
+        <a href="#">Status</a>
+    </div>
+</div>
+<div class="hr"></div>

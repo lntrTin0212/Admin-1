@@ -1,0 +1,48 @@
+<div class="row">
+    <div
+        class="user__item"
+        *ngFor="let user of users;index as idx"
+    >
+        <i class="fa-solid fa-delete-left delete-btn" (click)="handleDel(idx)"></i>
+        <div class="user__item--header">
+            <div class="avatar">
+                <img src="assets/img/fakeavatar/avatar.jpg" alt="">
+    </div>
+            <div class="fullname">
+                <p>{{user.firstName}} {{user.lastName}}</p>
+
+            </div>
+        </div>
+        <div class="user__item--info">
+            <div class="email">
+                <i class="fa-solid fa-envelope"></i>
+                <p>{{user.email}}</p>
+            </div>
+            <div class="phone">
+                <i class="fa-solid fa-phone"></i>
+                <p>{{user.phone}}</p>
+            </div>
+            <div class="dob">
+                <i class="fa-solid fa-calendar"></i>
+                <p>{{user.DOB}}</p>
+            </div>
+        </div>
+        <div class="user__item--social">
+            <a href="">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+    <!-- <app-user-item
+        *ngFor="let user of users"
+        [userItem]="user"
+    >
+    </app-user-item> -->
+</div>
+
